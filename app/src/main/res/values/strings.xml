@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PawConnect</string>
+
+    <!-- Profil -->
+    <string name="profile_title">Mon profil</string>
+    <string name="profile_photo">Photo de profil</string>
+    <string name="profile_default_name">Utilisateur</string>
+    <string name="profile_default_email">E-mail non renseigné</string>
+    <string name="profile_default_phone">Téléphone non renseigné</string>
+    <string name="profile_requests">Mes demandes dadoption</string>
+    <string name="logout">Se déconnecter</string>
+
+    <!-- Navigation -->
+    <string name="next">Suivant</string>
+    <string name="previous">Précédent</string>
+    <string name="first_fragment_label">Premier écran</string>
+    <string name="second_fragment_label">Deuxième écran</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="lorem_ipsum">Bienvenue dans PawConnect !</string>
+
+</resources>
+
