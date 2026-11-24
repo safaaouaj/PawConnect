@@ -3,6 +3,7 @@ package com.example.pawconnect
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -19,14 +20,50 @@ class LoginActivity : AppCompatActivity() {
 
         dbHelper = DBHelper(this)
 
-        val etEmail = findViewById<EditText>(R.id.etLoginEmail)
-        val etPassword = findViewById<EditText>(R.id.etLoginPassword)
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
+        // Welcome Screen
+        val welcomeLayout = findViewById<View>(R.id.welcomeLayout)
+        val loginLayout = findViewById<View>(R.id.loginLayout)
 
-        val tvGoRegister = findViewById<TextView>(R.id.tvGoRegister)
+        val btnWelcomeLogin =
+            findViewById<Button>(R.id.btnWelcomeLogin)
+
+        val btnBackWelcome =
+            findViewById<TextView>(R.id.btnBackWelcome)
+
+        // Champs de connexion
+        val etEmail =
+            findViewById<EditText>(R.id.etLoginEmail)
+
+        val etPassword =
+            findViewById<EditText>(R.id.etLoginPassword)
+
+        val btnLogin =
+            findViewById<Button>(R.id.btnLogin)
+
+        val tvGoRegister =
+            findViewById<TextView>(R.id.tvGoRegister)
+
         val tvAssociationRegister =
             findViewById<TextView>(R.id.tvAssociationRegister)
 
+
+        // Afficher le formulaire
+        btnWelcomeLogin.setOnClickListener {
+
+            welcomeLayout.visibility = View.GONE
+            loginLayout.visibility = View.VISIBLE
+        }
+
+
+        // Retour à la Welcome Screen
+        btnBackWelcome.setOnClickListener {
+
+            loginLayout.visibility = View.GONE
+            welcomeLayout.visibility = View.VISIBLE
+        }
+
+
+        // Connexion
         btnLogin.setOnClickListener {
 
             val email = etEmail.text.toString().trim()
@@ -47,9 +84,15 @@ class LoginActivity : AppCompatActivity() {
                 if (user != null) {
 
                     val intent = if (user.role == "USER") {
+
                         Intent(this, MainActivity::class.java)
+
                     } else {
-                        Intent(this, AssociationDashboardActivity::class.java)
+
+                        Intent(
+                            this,
+                            AssociationDashboardActivity::class.java
+                        )
                     }
 
                     intent.putExtra("USER_ID", user.id)
@@ -69,15 +112,24 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+
+        // Inscription utilisateur
         tvGoRegister.setOnClickListener {
+
             startActivity(
                 Intent(this, RegisterActivity::class.java)
             )
         }
 
+
+        // Inscription association
         tvAssociationRegister.setOnClickListener {
+
             startActivity(
-                Intent(this, AssociationRegisterActivity::class.java)
+                Intent(
+                    this,
+                    AssociationRegisterActivity::class.java
+                )
             )
         }
     }

@@ -1,4 +1,3 @@
-
 package com.example.pawconnect
 
 import android.net.Uri
@@ -36,11 +35,8 @@ class AnimalAdapter(
         viewType: Int
     ): AnimalViewHolder {
 
-        val view = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_animal,
-            parent,
-            false
-        )
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_animal, parent, false)
 
         return AnimalViewHolder(view)
     }
@@ -51,6 +47,7 @@ class AnimalAdapter(
     ) {
 
         val animal = animals[position]
+        val context = holder.itemView.context
 
         holder.name.text = animal.name
         holder.type.text = animal.type
@@ -62,24 +59,37 @@ class AnimalAdapter(
             else -> animal.status
         }
 
+        // Image par défaut
+        holder.image.setImageResource(
+            android.R.drawable.ic_menu_gallery
+        )
+
+        // Charger l'image
         if (!animal.image.isNullOrEmpty()) {
 
-            val imageFile = File(animal.image)
-
-            if (imageFile.exists()) {
-                holder.image.setImageURI(Uri.fromFile(imageFile))
-            } else {
-                holder.image.setImageResource(
-                    android.R.drawable.ic_menu_gallery
-                )
-            }
-
-        } else {
-            holder.image.setImageResource(
-                android.R.drawable.ic_menu_gallery
+            val imageResource = context.resources.getIdentifier(
+                animal.image,
+                "drawable",
+                context.packageName
             )
+
+            if (imageResource != 0) {
+
+                holder.image.setImageResource(imageResource)
+
+            } else {
+
+                val imageFile = File(animal.image)
+
+                if (imageFile.exists()) {
+                    holder.image.setImageURI(
+                        Uri.fromFile(imageFile)
+                    )
+                }
+            }
         }
 
+        // Clic sur la carte
         holder.itemView.setOnClickListener {
             onAnimalClick(animal)
         }

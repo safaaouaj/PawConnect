@@ -47,7 +47,12 @@ class AnimalDetailsActivity : AppCompatActivity() {
         btnAdoptAnimal = findViewById(R.id.btnAdoptAnimal)
 
         if (animalId == -1 || userId == -1) {
-            Toast.makeText(this, "Informations manquantes", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Informations manquantes",
+                Toast.LENGTH_SHORT
+            ).show()
+
             finish()
             return
         }
@@ -98,13 +103,13 @@ class AnimalDetailsActivity : AppCompatActivity() {
                 else -> "Statut : $status"
             }
 
-            if (!image.isNullOrEmpty()) {
-                val imageFile = File(image)
+            // Image par défaut
+            ivAnimalDetails.setImageResource(
+                android.R.drawable.ic_menu_gallery
+            )
 
-                if (imageFile.exists()) {
-                    ivAnimalDetails.setImageURI(Uri.fromFile(imageFile))
-                }
-            }
+            // Charger la photo de l'animal
+            loadAnimalImage(image)
 
             btnAdoptAnimal.isEnabled =
                 status == "AVAILABLE" && ownerId != userId
@@ -116,12 +121,48 @@ class AnimalDetailsActivity : AppCompatActivity() {
             }
 
         } else {
-            Toast.makeText(this, "Animal introuvable", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(
+                this,
+                "Animal introuvable",
+                Toast.LENGTH_SHORT
+            ).show()
+
             finish()
         }
 
         cursor.close()
         db.close()
+    }
+
+    private fun loadAnimalImage(image: String?) {
+
+        if (image.isNullOrEmpty()) {
+            return
+        }
+
+        // Chercher l'image dans Drawable
+        val imageResource = resources.getIdentifier(
+            image,
+            "drawable",
+            packageName
+        )
+
+        if (imageResource != 0) {
+
+            ivAnimalDetails.setImageResource(imageResource)
+
+        } else {
+
+            // Si ce n'est pas Drawable, vérifier un fichier local
+            val imageFile = File(image)
+
+            if (imageFile.exists()) {
+                ivAnimalDetails.setImageURI(
+                    Uri.fromFile(imageFile)
+                )
+            }
+        }
     }
 
     private fun checkFavorite() {
@@ -167,12 +208,14 @@ class AnimalDetailsActivity : AppCompatActivity() {
         } else {
 
             val values = android.content.ContentValues()
+
             values.put("user_id", userId)
             values.put("animal_id", animalId)
 
             val result = db.insert("favorites", null, values)
 
             if (result != -1L) {
+
                 isFavorite = true
 
                 Toast.makeText(
@@ -184,26 +227,37 @@ class AnimalDetailsActivity : AppCompatActivity() {
         }
 
         db.close()
+
         updateFavoriteButton()
     }
+
 
     private fun updateFavoriteButton() {
 
         if (isFavorite) {
-            btnAddFavorite.text = "♥ Retirer des favoris"
+            btnAddFavorite.text = "♥"
+            btnAddFavorite.setTextColor(
+                android.graphics.Color.parseColor("#C94C61")
+            )
         } else {
-            btnAddFavorite.text = "♡ Ajouter aux favoris"
+            btnAddFavorite.text = "♡"
+            btnAddFavorite.setTextColor(
+                android.graphics.Color.parseColor("#29452D")
+            )
         }
     }
+
 
     private fun requestAdoption() {
 
         if (ownerId == userId) {
+
             Toast.makeText(
                 this,
                 "Vous ne pouvez pas adopter votre propre animal",
                 Toast.LENGTH_SHORT
             ).show()
+
             return
         }
 
@@ -218,6 +272,7 @@ class AnimalDetailsActivity : AppCompatActivity() {
         )
 
         val alreadyRequested = cursor.moveToFirst()
+
         cursor.close()
 
         if (alreadyRequested) {
@@ -233,11 +288,16 @@ class AnimalDetailsActivity : AppCompatActivity() {
         }
 
         val values = android.content.ContentValues()
+
         values.put("user_id", userId)
         values.put("animal_id", animalId)
         values.put("status", "PENDING")
 
-        val result = db.insert("adoption_requests", null, values)
+        val result = db.insert(
+            "adoption_requests",
+            null,
+            values
+        )
 
         db.close()
 

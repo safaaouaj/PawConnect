@@ -1,4 +1,3 @@
-
 package com.example.pawconnect
 
 import android.content.Intent
@@ -7,8 +6,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 class AnimalListActivity : AppCompatActivity() {
 
@@ -32,11 +31,19 @@ class AnimalListActivity : AppCompatActivity() {
         etSearchAnimal = findViewById(R.id.etSearchAnimal)
         rvAnimalList = findViewById(R.id.rvAnimalList)
 
-        rvAnimalList.layoutManager = LinearLayoutManager(this)
+        // Grille de 2 colonnes
+        rvAnimalList.layoutManager =
+            StaggeredGridLayoutManager(
+                2,
+                StaggeredGridLayoutManager.VERTICAL
+            )
 
         adapter = AnimalAdapter(ArrayList()) { animal ->
 
-            val intent = Intent(this, AnimalDetailsActivity::class.java)
+            val intent = Intent(
+                this,
+                AnimalDetailsActivity::class.java
+            )
 
             intent.putExtra("ANIMAL_ID", animal.id)
             intent.putExtra("USER_ID", userId)
@@ -46,6 +53,7 @@ class AnimalListActivity : AppCompatActivity() {
 
         rvAnimalList.adapter = adapter
 
+        // Recherche
         etSearchAnimal.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(
@@ -120,7 +128,8 @@ class AnimalListActivity : AppCompatActivity() {
 
         for (animal in animals) {
 
-            if (animal.name.contains(query, ignoreCase = true) ||
+            if (
+                animal.name.contains(query, ignoreCase = true) ||
                 animal.type.contains(query, ignoreCase = true)
             ) {
                 filteredAnimals.add(animal)

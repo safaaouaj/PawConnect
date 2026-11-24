@@ -3,284 +3,350 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F3EBDD">
+    android:background="@drawable/pet_background">
 
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:background="#456B50"
+        android:radius="20dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PawConnect"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adoptez • Aimez • Protégez"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:letterSpacing="0.04" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:gravity="center"
+            android:text="🐾"
+            android:textSize="22sp"
+            android:background="@drawable/bg_circle_sage" />
+
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
+        android:fillViewport="false"
+        android:clipToPadding="false">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingStart="22dp"
+            android:paddingEnd="22dp"
+            android:paddingTop="18dp"
             android:paddingBottom="20dp">
 
+            <!-- HERO -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp"
-                android:background="#A3B69A">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🐾 PawConnect"
-                    android:textColor="#FFFFFF"
-                    android:textSize="28sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Adoptez • Aimez • Protégez"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="205dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/bg_hero_paw"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:padding="20dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bonjour ! 🐾"
-                    android:textColor="#343A32"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Chaque animal mérite une famille."
-                    android:textColor="#5E6258"
-                    android:textSize="16sp" />
-
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/bg_hero"
-                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:orientation="vertical"
-                    android:padding="18dp">
+                    android:gravity="center_vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🐶   🐱"
-                        android:textSize="45sp" />
+                        android:text="UNE NOUVELLE VIE"
+                        android:textColor="#637958"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.12" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="Offrez-leur une seconde chance"
-                        android:textColor="#394333"
-                        android:textSize="21sp"
+                        android:text="Leur bonheur commence avec vous."
+                        android:textColor="#39372F"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:maxLines="3" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="105dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="🐕"
+                    android:textSize="80sp" />
+
+            </LinearLayout>
+
+            <!-- QUICK ACTIONS TITLE -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Que souhaitez-vous faire ?"
+                    android:textColor="#38352F"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- DISCOVER CARD -->
+            <LinearLayout
+                android:id="@+id/cardDiscoverAnimals"
+                android:layout_width="650px"
+                android:layout_height="90dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_hero_paw"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:text="🐶"
+                    android:textSize="30sp"
+                    android:background="@drawable/bg_circle_sand" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Découvrir les animaux"
+                        android:textColor="#39372F"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Trouver votre futur compagnon"
+                        android:textColor="#8C887F"
+                        android:textSize="12sp" />
+
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginBottom="12dp"
-                    android:text="Que souhaitez-vous faire ?"
-                    android:textColor="#343A32"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:text="›"
+                    android:textColor="#849575"
+                    android:textSize="28sp" />
+
+            </LinearLayout>
+
+            <!-- MY REQUESTS CARD -->
+            <LinearLayout
+                android:id="@+id/cardMyRequests"
+                android:layout_width="650px"
+                android:layout_height="90dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_hero_paw"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:text="💌"
+                    android:textSize="27sp"
+                    android:background="@drawable/bg_circle_pink" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/cardDiscoverAnimals"
-                        android:layout_width="0dp"
-                        android:layout_height="115dp"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="7dp"
-                        android:background="@drawable/bg_card_white"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp"
-                        android:clickable="true"
-                        android:focusable="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🐾"
-                            android:textSize="30sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:text="Découvrir les animaux"
-                            android:textColor="#343A32"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/cardMyRequests"
-                        android:layout_width="0dp"
-                        android:layout_height="115dp"
-                        android:layout_weight="1"
-                        android:layout_marginStart="7dp"
-                        android:background="@drawable/bg_card_white"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp"
-                        android:clickable="true"
-                        android:focusable="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="♥"
-                            android:textColor="#A3B69A"
-                            android:textSize="32sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:text="Mes demandes d'adoption"
-                            android:textColor="#343A32"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/cardReportAnimal"
-                        android:layout_width="0dp"
-                        android:layout_height="115dp"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="7dp"
-                        android:background="@drawable/bg_card_white"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp"
-                        android:clickable="true"
-                        android:focusable="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="⚠"
-                            android:textColor="#A3B69A"
-                            android:textSize="32sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:text="Signaler un animal"
-                            android:textColor="#343A32"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="115dp"
-                        android:layout_weight="1"
-                        android:layout_marginStart="7dp"
-                        android:background="@drawable/bg_card_white"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🤝"
-                            android:textSize="32sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:text="Associations"
-                            android:textColor="#343A32"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Nos petits protégés"
-                        android:textColor="#343A32"
-                        android:textSize="20sp"
+                        android:text="Mes demandes"
+                        android:textColor="#39372F"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tvSeeAll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Voir tout →"
-                        android:textColor="#687D60"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:clickable="true"
-                        android:focusable="true" />
+                        android:layout_marginTop="4dp"
+                        android:text="Suivre mes demandes d'adoption"
+                        android:textColor="#8C887F"
+                        android:textSize="12sp" />
+
                 </LinearLayout>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_card_white"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="🐕        🐈        🐇\n\nBientôt, découvrez les animaux à adopter !"
-                    android:textColor="#53634D"
-                    android:textSize="17sp" />
+                    android:text="›"
+                    android:textColor="#849575"
+                    android:textSize="28sp" />
 
             </LinearLayout>
+
+            <!-- REPORT CARD -->
+            <LinearLayout
+                android:id="@+id/cardReportAnimal"
+                android:layout_width="650px"
+                android:layout_height="90dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_hero_paw"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:text="🐾"
+                    android:textSize="27sp"
+                    android:background="@drawable/bg_circle_sand" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Signaler un animal"
+                        android:textColor="#39372F"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Aider un animal en difficulté"
+                        android:textColor="#8C887F"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textColor="#849575"
+                    android:textSize="28sp" />
+
+            </LinearLayout>
+
+            <!-- ANIMALS SECTION -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nos petits protégés"
+                    android:textColor="#38352F"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSeeAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Voir tout  ›"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
         </LinearLayout>
+
     </ScrollView>
 
+    <!-- BOTTOM NAVIGATION -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="#A3B69A"
+        android:layout_height="72dp"
+        android:background="@drawable/bg_card_blue"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:elevation="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
 
+        <!-- HOME -->
         <TextView
             android:id="@+id/navHome"
             android:layout_width="0dp"
@@ -288,10 +354,11 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="⌂\nAccueil"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="14sp" />
+            android:textColor="#38352F"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
+        <!-- ANIMALS -->
         <TextView
             android:id="@+id/navAnimals"
             android:layout_width="0dp"
@@ -299,9 +366,10 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="🐾\nAnimaux"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp" />
+            android:textColor="#38352F"
+            android:textSize="12sp" />
 
+        <!-- FAVORITES -->
         <TextView
             android:id="@+id/navFavorites"
             android:layout_width="0dp"
@@ -309,18 +377,19 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="♡\nFavoris"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp" />
+            android:textColor="#38352F"
+            android:textSize="12sp" />
 
+        <!-- PROFILE -->
         <TextView
             android:id="@+id/navProfile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="♙\nProfil"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp" />
+            android:text="○\nProfil"
+            android:textColor="#38352F"
+            android:textSize="12sp" />
 
     </LinearLayout>
 

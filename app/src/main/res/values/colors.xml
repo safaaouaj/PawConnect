@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="black">#2D2926</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="forest_green">#456B50</color>
+    <color name="sage_green">#A8C686</color>
+    <color name="cream">#F4E8D0</color>
+    <color name="terracotta">#E98B70</color>
+    <color name="burgundy">#713F48</color>
+
+    <color name="background">#FFF9F1</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="text_primary">#2D2926</color>
+    <color name="text_secondary">#76665D</color>
+    <color name="button_green">#456B50</color>
+    <color name="button_orange">#E98B70</color>
+    <color name="light_green">#E5EEDB</color>
+    <color name="light_orange">#FBE3D8</color>
+
 </resources>

@@ -2,143 +2,292 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3EBDD"
+    android:background="#456B50"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="26dp">
+        android:gravity="center_horizontal"
+        android:padding="22dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🐾"
-            android:textSize="65sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="PawConnect"
-            android:textColor="#71866A"
-            android:textSize="32sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="Heureux de vous retrouver !"
-            android:textColor="#62665D"
-            android:textSize="16sp" />
+        <!-- ACCUEIL -->
 
         <LinearLayout
+            android:id="@+id/welcomeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:background="@drawable/bg_card_white"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:paddingTop="15dp"
+            android:paddingBottom="20dp">
+
+            <!-- Logo -->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Connexion"
-                android:textColor="#343A32"
-                android:textSize="25sp"
+                android:text="🐾 PawConnect"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Photos rondes -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:text="Adresse e-mail"
-                android:textColor="#53634D"
-                android:textStyle="bold"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="115dp"
+                    android:layout_height="115dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bg_circle_image"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/animal_milo"
+                    android:contentDescription="Photo de Milo" />
+
+                <ImageView
+                    android:layout_width="115dp"
+                    android:layout_height="115dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bg_circle_image"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/animal_bella"
+                    android:contentDescription="Photo de Bella" />
+
+            </LinearLayout>
+
+            <!-- Grande photo ronde -->
+
+            <ImageView
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bg_circle_image"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/animal_nala"
+                android:contentDescription="Un animal à adopter" />
+
+            <!-- Titre -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:text="Trouvez votre nouveau compagnon 🐾"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!-- Description -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:text="Offrez un foyer plein d'amour à un animal qui attend sa famille. Découvrez de merveilleux compagnons et trouvez celui qui vous correspond."
+                android:textColor="#E5EDE7"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/etLoginEmail"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_card_white"
-                android:hint="exemple@email.com"
-                android:inputType="textEmailAddress"
-                android:padding="12dp"
-                android:textColor="#343A32"
-                android:textColorHint="#92978E"
-                android:autofillHints="emailAddress" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="Mot de passe"
-                android:textColor="#53634D"
-                android:textStyle="bold"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/etLoginPassword"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_card_white"
-                android:hint="Votre mot de passe"
-                android:inputType="textPassword"
-                android:padding="12dp"
-                android:textColor="#343A32"
-                android:textColorHint="#92978E"
-                android:autofillHints="password" />
+            <!-- Bouton -->
 
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnWelcomeLogin"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="56dp"
                 android:layout_marginTop="28dp"
-                android:backgroundTint="#A3B69A"
+                android:backgroundTint="#FFFFFF"
                 android:text="Se connecter"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="#456B50"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvGoRegister"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:gravity="center"
-                android:text="Pas encore de compte ? S'inscrire"
-                android:textColor="#71866A"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvAssociationRegister"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:text="Vous êtes une association ?"
-                android:textColor="#62665D"
+                android:text="Ensemble, protégeons les animaux ♥"
+                android:textColor="#E5EDE7"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+
+        <!-- PAGE CONNEXION -->
+
+        <LinearLayout
+            android:id="@+id/loginLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:paddingTop="12dp"
+            android:paddingBottom="20dp">
+
+            <!-- Retour -->
+
+            <TextView
+                android:id="@+id/btnBackWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Retour"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Logo -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:text="🐾 PawConnect"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Heureux de vous retrouver !"
+                android:textColor="#E5EDE7"
+                android:textSize="15sp" />
+
+            <!-- Carte connexion -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_card_white"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connexion"
+                    android:textColor="#343A32"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <!-- Email -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:text="Adresse e-mail"
+                    android:textColor="#53634D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etLoginEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_card_white"
+                    android:hint="exemple@email.com"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:textColor="#343A32"
+                    android:textColorHint="#92978E"
+                    android:autofillHints="emailAddress" />
+
+                <!-- Mot de passe -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Mot de passe"
+                    android:textColor="#53634D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etLoginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_card_white"
+                    android:hint="Votre mot de passe"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:textColor="#343A32"
+                    android:textColorHint="#92978E"
+                    android:autofillHints="password" />
+
+                <!-- Bouton connexion -->
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="25dp"
+                    android:backgroundTint="#456B50"
+                    android:text="Se connecter"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Inscription utilisateur -->
+
+                <TextView
+                    android:id="@+id/tvGoRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center"
+                    android:text="Pas encore de compte ? S'inscrire"
+                    android:textColor="#456B50"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Inscription association -->
+
+                <TextView
+                    android:id="@+id/tvAssociationRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="Vous êtes une association ?"
+                    android:textColor="#62665D"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:text="Ensemble, protégeons les animaux ♥"
+                android:textColor="#E5EDE7"
                 android:textSize="14sp" />
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:gravity="center"
-            android:text="Ensemble, protégeons les animaux ♥"
-            android:textColor="#71866A"
-            android:textSize="14sp" />
-
     </LinearLayout>
+
 </ScrollView>
